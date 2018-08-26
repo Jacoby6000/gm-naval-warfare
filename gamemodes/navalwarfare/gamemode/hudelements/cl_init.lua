@@ -62,26 +62,26 @@ oldShouldDrawPlugs = false
 transOn = false
 teamCol = nil
 teamCol2 = nil
-zoneTable = { 
+zoneTable = {
 	[0] =      	"Open Water",
 	[1] =      	"Combine Harbor",
 	[2] =      	"Rebel Harbor",
 	[3] =      	"Oil Rig",
 	[4] = 		"Copperhead Island"
 }
-zoneWidths = { 
+zoneWidths = {
 	[0] =      	90,
 	[1] =      	150,
 	[2] =       100,
 	[3] =      	300,
 	[4] = 		200
 }
-zoneTimeUp= { 
+zoneTimeUp= {
 	[0] =      	10,
 	[1] =      	10,
 	[2] =      	10,
 	[3] =      	-1,
-	[4] = 		10	
+	[4] = 		10
 }
 local oTeam = nil
 function GM:HUDPaint()
@@ -101,19 +101,19 @@ function GM:HUDPaint()
 		teamCol2.g = teamCol2.g/3
 		teamCol2.b = teamCol2.b/3
 		--[------------------------------------------------------]
-		HudElementDefaults = { 
+		HudElementDefaults = {
 			["DefaultLowY"] 		= scrHeight*0.90,
 			["DefaultHighY"] 		= 20
 		}
 		--[------------------------------------------------------]
-		mainHudPosition = { 
+		mainHudPosition = {
 			["X"]			= 20,
 			["Y"]			= HudElementDefaults["DefaultLowY"]
 		}
 		mainHudElements = {
 			["outerCircle"] = getArc(40,scrHeight-40,100,0,math.pi*0.9,math.pi*1.465),
 			["innerCircle"] = getArc(40,scrHeight-40,90,0,math.pi*0.96,math.pi*1.495),
-			
+
 			["outerSquare"] = {
 				{
 					["x"] = 0,
@@ -138,7 +138,7 @@ function GM:HUDPaint()
 					["y"] = scrHeight,
 					["u"] = 0.5,
 					["v"] = 1,
-				
+
 				}
 			},
 
@@ -162,15 +162,15 @@ function GM:HUDPaint()
 					["v"] = 1
 				},
 				{
-					["x"] = 120,										
+					["x"] = 120,
 					["y"] = scrHeight,
 					["u"] = 0.5,
 					["v"] = 1,
 				},
 				{
-					["x"] = 0,					
+					["x"] = 0,
 					["y"] = scrHeight,
-					["u"] = 0.55,								
+					["u"] = 0.55,
 					["v"] = 0.95,
 				}
 			},
@@ -201,7 +201,7 @@ function GM:HUDPaint()
 					["v"] = 1
 				}
 			},
-			
+
 			["healthBar"] = {
 				{
 					["x"] = 10,
@@ -227,18 +227,18 @@ function GM:HUDPaint()
 					["u"] = 0.5,
 					["v"] = 1
 				}
-				
+
 			},
-			
+
 			["xMod"] = 133
-			
+
 		}
 		--[------------------------------------------------------]
-		creditHudPosition = { 
+		creditHudPosition = {
 			["X"]			= 20,
 			["Y"]			= HudElementDefaults["DefaultHighY"]+30
-		}	
-		creditHudElements = { 
+		}
+		creditHudElements = {
 			["X"]			= creditHudPosition["X"],
 			["Y"]			= creditHudPosition["Y"],
 			["TextX"] 		= creditHudPosition["X"],
@@ -267,7 +267,7 @@ function GM:HUDPaint()
 					["y"] = 0,
 					["u"] = 0.5,
 					["v"] = 1,
-				
+
 				}
 			},
 
@@ -291,15 +291,15 @@ function GM:HUDPaint()
 					["v"] = 1
 				},
 				{
-					["x"] = 120,										
+					["x"] = 120,
 					["y"] = 0,
 					["u"] = 0.5,
 					["v"] = 1,
 				},
 				{
-					["x"] = 0,					
+					["x"] = 0,
 					["y"] =0,
-					["u"] = 0.55,								
+					["u"] = 0.55,
 					["v"] = 0.95,
 				}
 			},
@@ -309,7 +309,7 @@ function GM:HUDPaint()
 			["X"]			= 20,
 			["Y"]			= HudElementDefaults["DefaultLowY"]-75
 		}
-		staminaHudElements = { 
+		staminaHudElements = {
 			["X"]			= staminaHudPosition["X"],
 			["Y"]			= staminaHudPosition["Y"],
 			["TextX"] 		= staminaHudPosition["X"]+10,
@@ -340,7 +340,7 @@ function GM:HUDPaint()
 					["y"] = scrHeight,
 					["u"] = 0.5,
 					["v"] = 1
-				
+
 				}
 			},
 			["bar"] = {
@@ -367,7 +367,7 @@ function GM:HUDPaint()
 					["y"] = scrHeight-5,
 					["u"] = 0.5,
 					["v"] = 1
-				
+
 				}
 			},
 			["stam"] = {
@@ -402,7 +402,7 @@ function GM:HUDPaint()
 			["X"]			= 20,
 			["Y"]			= HudElementDefaults["DefaultLowY"] + 40
 		}
-		clip1HudElements = { 
+		clip1HudElements = {
 			["X"]			= clip1HudPosition["X"],
 			["Y"]			= clip1HudPosition["Y"],
 			["TextX"] 		= clip1HudPosition["X"],
@@ -416,7 +416,7 @@ function GM:HUDPaint()
 			["X"]			= 350,
 			["Y"]			= HudElementDefaults["DefaultLowY"]-75
 		}
-		clip2HudElements = { 
+		clip2HudElements = {
 			["X"]			= clip2HudPosition["X"],
 			["Y"]			= clip2HudPosition["Y"],
 			["TextX"] 		= clip2HudPosition["X"]+10,
@@ -429,7 +429,7 @@ function GM:HUDPaint()
 			["X"]			= mainHudPosition["X"],
 			["Y"]			= mainHudPosition["Y"]
 		}
-		adminHudElements = { 
+		adminHudElements = {
 			["X"]			= adminHudPosition["X"],
 			["Y"]			= adminHudPosition["Y"],
 			["TextX"] 		= adminHudPosition["X"]+120,
@@ -442,7 +442,7 @@ function GM:HUDPaint()
 			["X"]			= scrWidth/2,
 			["Y"]			= HudElementDefaults["DefaultHighY"]+30
 		}
-		TextLocationHudElements = { 
+		TextLocationHudElements = {
 			["X"]			= TextLocationHudPosition["X"],
 			["Y"]			= TextLocationHudPosition["Y"],
 			["TextX"] 		= TextLocationHudPosition["X"]+20,
@@ -450,12 +450,12 @@ function GM:HUDPaint()
 			["BoxWidth"] 	= mainHudElements["BoxWidth"],
 			["BoxHeight"] 	= 50
 		}
-		zoneTimeUp= { 
+		zoneTimeUp= {
 			[0] =      	10,
 			[1] =      	10,
 			[2] =      	10,
 			[3] =      	-1,
-			[4] = 		10	
+			[4] = 		10
 		}
 	end
 	self:PaintWorldTips()
@@ -500,7 +500,7 @@ end
 usermessage.Hook( "DestroyPlugs", DestroyPlugs )
 
 local function RenderPlugs()
-	effects.halo.Add(clientsideplugrenders, Color(255, 127, 0), 4, 4, 2, true, true)
+	halo.Add(clientsideplugrenders, Color(255, 127, 0), 4, 4, 2, true, true)
 end
 
 function DoHUDDecisions()
@@ -594,7 +594,7 @@ function DoHUDDecisions()
 		if drawAmmo or transitionAmmo != 0 then
 			DrawAmmoCounter(currentClip, totalAmmo)
 		end
-	
+
 		DrawCreditCounter()
 		DrawPlayerNames()
 		RenderPlugs()

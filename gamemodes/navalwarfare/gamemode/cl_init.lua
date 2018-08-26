@@ -19,7 +19,7 @@ local physgun_halo = CreateConVar( "physgun_halo", "1", { FCVAR_ARCHIVE }, "Draw
 function GM:Initialize()
 
 	BaseClass.Initialize( self )
-	
+
 end
 
 function GM:LimitHit( name )
@@ -32,7 +32,7 @@ end
 function GM:OnUndo( name, strCustomString )
 	if ( !strCustomString ) then
 		self:AddNotify( "#Undone_"..name, NOTIFY_UNDO, 2 )
-	else	
+	else
 		self:AddNotify( strCustomString, NOTIFY_UNDO, 2 )
 	end
 	surface.PlaySound( "buttons/button15.wav" )
@@ -58,12 +58,12 @@ end
 local PhysgunHalos = {}
 
 --[[---------------------------------------------------------
-   Name: gamemode:DrawPhysgunBeam()
-   Desc: Return false to override completely
+  Name: gamemode:DrawPhysgunBeam()
+  Desc: Return false to override completely
 -----------------------------------------------------------]]
 function GM:DrawPhysgunBeam( ply, weapon, bOn, target, boneid, pos )
 	if ( physgun_halo:GetInt() == 0 ) then return true end
-	
+
 	if ( IsValid( target ) ) then
 		PhysgunHalos[ ply ] = target
 	end
@@ -74,12 +74,14 @@ hook.Add( "PreDrawHalos", "AddPhysgunHalos", function()
 	if ( !PhysgunHalos || table.Count( PhysgunHalos ) == 0 ) then return end
 
 	for k, v in pairs( PhysgunHalos ) do
+
 		if ( !IsValid( k ) ) then continue end
 
 		local size = math.random( 1, 2 )
 		local colr = k:GetWeaponColor() + VectorRand() * 0.3
 
-		effects.halo.Add( PhysgunHalos, Color( colr.x * 255, colr.y * 255, colr.z * 255 ), size, size, 1, true, false )
+
+		halo.Add({v}, Color( colr.x * 255, colr.y * 255, colr.z * 255 ), size, size, 1, true, false )
 	end
 
 	PhysgunHalos = {}
@@ -87,8 +89,8 @@ end )
 
 
 --[[---------------------------------------------------------
-   Name: gamemode:NetworkEntityCreated()
-   Desc: Entity is created over the network
+  Name: gamemode:NetworkEntityCreated()
+  Desc: Entity is created over the network
 -----------------------------------------------------------]]
 function GM:NetworkEntityCreated( ent )
 	if ( ent:GetSpawnEffect() && ent:GetCreationTime() > (CurTime() - 1.0) ) then
